@@ -1,10 +1,13 @@
-/* color palette */
+/* ==== color palette ====*/
 :root {
   --color-test: #6c99bb;
 
-  --color-grey-dark: #2e2e2e;
+  --color-grey-deep: #2e2e2e;
+  --color-grey-dark: #454545;
   --color-grey-mild: #797979;
+  --color-grey-medium: #b0b0b0;
   --color-grey-light: #d6d6d6;
+  --color-grey-bright: #e0e0e0;
   --color-grey-vibrant: #f0f0f0;
 
   --color-orange-mild: #e87d3e;
@@ -16,11 +19,41 @@
 
 }
 
-/* semantic colors by theme*/
+/* ==== semantic colors by theme and categories ====*/
+/* === Main === */
 [theme="themedark"] {
   --main-bg-color: var(--color-grey-dark);
+  --main-color: var(--color-grey-light);
 }
 
 [theme="themelight"] {
   --main-bg-color: var(--color-grey-vibrant);
+  --main-color: var(--color-grey-dark);
+}
+
+
+/* === Navigation === */
+[theme="themedark"] {
+  --nav-bg-color: var(--color-grey-deep);
+  --nav-button-color: var(--color-grey-vibrant);
+  --nav-button-line-active: var(--color-blue-mild);
+  --nav-button-line-hover: var(--color-grey-mild); /* Added for consistency */
+}
+
+[theme="themelight"] {
+  --nav-bg-color: var(--color-grey-light);
+  --nav-button-color: var(--color-grey-dark);
+  --nav-button-line-active: var(--color-blue-mild);
+  --nav-button-line-hover: var(--color-grey-mild); /* Added for consistency */
+}
+
+/* === ToggleSlider === */
+[theme="themedark"] {
+  --slider-track-bg: var(--color-grey-mild);
+  --slider-thumb-bg: var(--color-grey-medium);
+}
+
+[theme="themelight"] {
+  --slider-track-bg: var(--color-grey-medium);
+  --slider-thumb-bg: var(--color-grey-dark);
 }
