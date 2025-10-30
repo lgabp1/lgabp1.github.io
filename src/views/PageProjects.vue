@@ -38,6 +38,8 @@ const cl = currentLanguage; // Alias for easier access
     <h1>
       Projects
     </h1>
+
+    Under construction...
     
     <div class="timeline">
       <TimelineEntry
