@@ -117,7 +117,7 @@ nav a.router-link-active::after {
   background-color: var(--nav-button-line-active);
 }
 
-/* Styles for the icons, now defined here as they are part of Navigation.vue's template */
+/* Styles for the icons, now defined here as they are part of navigation.vue's template */
 .icon-light,
 .icon-dark {
   font-size: 0.8em; /* Adjusted size to fit better within the thumb */

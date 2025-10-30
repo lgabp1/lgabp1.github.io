@@ -39,7 +39,7 @@
 }
 
 
-/* === Navigation === */
+/* === navigation === */
 [theme="themedark"] {
   --nav-bg-color: var(--color-grey-deep);
   --nav-button-color: var(--color-grey-vibrant);

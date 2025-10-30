@@ -2,7 +2,7 @@
 import { setPageTitle } from '@/composables/setPageTitle'; // Updated import path and function name
 setPageTitle('Home'); /* Set title */
 
-import Navigation from '@/components/Navigation.vue'
+import navigation from '@/components/navigation.vue'
 import { useLanguage } from '@/composables/useLanguage';
 
 // Destructure only currentLanguage and toggleLanguage
@@ -14,7 +14,7 @@ const cl = currentLanguage; // Alias for easier access
 </style>
 
 <template>  
-  <Navigation />
+  <navigation />
 
   <div class="div-content">
     <h1>
