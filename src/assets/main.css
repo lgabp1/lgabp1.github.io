@@ -24,3 +24,8 @@ a {
 h1 {  
   text-align: center;
 }
+
+p {
+  font-size: 1.1em;
+  text-align: justify;
+}
