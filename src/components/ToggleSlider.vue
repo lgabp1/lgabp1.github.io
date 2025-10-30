@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { defineProps, defineEmits } from 'vue';
 
 const props = defineProps<{
   modelValue: boolean; // Generic state for the toggle
+  title: string; // Title (tooltip)
 }>();
 
 const emit = defineEmits(['update:modelValue']); // Generic update event
@@ -13,7 +13,7 @@ const handleClick = () => {
 </script>
 
 <template>
-  <div class="toggle-slider" @click="handleClick()">
+  <div class="toggle-slider" @click="handleClick()" :title="props.title">
     <!-- Hidden checkbox for accessibility and state management -->
     <input type="checkbox" :checked="props.modelValue" class="sr-only" aria-label="Toggle" />
     <div class="slider-track">

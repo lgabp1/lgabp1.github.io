@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { ref } from 'vue'; // Import ref for dropdown state
 import { useDark, useToggle } from "@vueuse/core";
-import ToggleSlider from './ToggleSlider.vue'; // Import the renamed generic component
+import ToggleSlider from './ToggleSlider.vue';
+import { useLanguage } from '@/composables/useLanguage'; // Import useLanguage composable
 
 const isDark = useDark({
   selector: "body",
@@ -9,16 +11,53 @@ const isDark = useDark({
   valueLight: "themelight",
 });
 const toggleDark = useToggle(isDark);
+
+// Use the language composable
+const { currentLanguage, setLanguage } = useLanguage();
+const cl = currentLanguage; // Alias for easier access
+const showLanguageDropdown = ref(false); // State for language dropdown visibility
+
+const selectLanguage = (lang: 'en' | 'fr') => {
+  setLanguage(lang);
+  showLanguageDropdown.value = false; // Close dropdown after selection
+};
 </script>
 
 <template>
   <nav>
-    <RouterLink to="/">Home</RouterLink>
-    <RouterLink to="/about">About</RouterLink>
+    <span v-if="cl === 'en'">
+      <RouterLink to="/">Home</RouterLink>
+      <RouterLink to="/projects">Projects</RouterLink>
+      <RouterLink to="/about">About</RouterLink>
+    </span>
+    <span v-if="cl === 'fr'">
+      <RouterLink to="/">Accueil</RouterLink>
+      <RouterLink to="/projects">Projets</RouterLink>
+      <RouterLink to="/about">À propos</RouterLink>
+    </span>
+
+    
     
     <!-- New wrapper div for right-aligned elements -->
     <div class="nav-right">
-      <ToggleSlider :modelValue="isDark" @update:modelValue="toggleDark()">
+      <!-- Language Dropdown -->
+      <div class="language-selector">
+        <button @click="showLanguageDropdown = !showLanguageDropdown" class="language-display-button" 
+        title="Select Language"
+        >
+          {{ cl.toUpperCase() }}
+        </button>
+        <div v-if="showLanguageDropdown" class="language-dropdown-menu">
+          <button @click="selectLanguage('en')" :class="{ 'active-lang': cl === 'en' }"
+          title="English">EN</button>
+          <button @click="selectLanguage('fr')" :class="{ 'active-lang': cl === 'fr' }"
+          title="Français">FR</button>
+        </div>
+      </div>
+
+      <!-- Dark Mode Toggle -->
+      <ToggleSlider @update:modelValue="toggleDark()" :modelValue="isDark" 
+      :title="cl === 'en' ? 'Toggle Dark Mode' : 'Changer le thème'">
         <!-- Content for the slider thumb slot -->
         <span v-if="!isDark" class="icon-light">☀️</span>
         <span v-if="isDark" class="icon-dark">🌙</span>
@@ -43,10 +82,11 @@ nav {
 
 /* Right aligned items */
 .nav-right {
+  padding-right: 0.5em;
   margin-left: auto; 
   display: flex; 
   align-items: center; 
-  /* gap: 1em;  */
+  gap: 0.5em; /* Added gap for spacing between language dropdown and dark mode toggle */
 }
 
 nav a {
@@ -85,5 +125,56 @@ nav a.router-link-active::after {
   /* color: var(--slider-icon-color); */
 }
 
+/* Language Selector Styles */
+.language-selector {
+  position: relative;
+  display: inline-block;
+}
 
+.language-display-button {
+  background-color: var(--nav-bg-color);
+  color: var(--nav-button-color);
+  padding: 0.5em 0.8em;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.9em;
+  width: 3.5em; /* Set a fixed width for alignment */
+  text-align: center; /* Center the text */
+}
+
+.language-display-button:hover {
+  background-color: var(--nav-button-line-hover); /* Use a hover color */
+}
+
+.language-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--nav-bg-color);
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  padding: 0.2em 0;
+}
+
+.language-dropdown-menu button {
+  background: none;
+  border: none;
+  color: var(--nav-button-color);
+  padding: 0.5em 1em;
+  text-align: center; /* Center the text */
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.language-dropdown-menu button:hover {
+  background-color: var(--nav-button-line-hover);
+}
+
+.language-dropdown-menu button.active-lang {
+  background-color: var(--nav-button-line-active); /* Highlight active language */
+  color: var(--nav-bg-color); /* Text color for active language */
+}
 </style>

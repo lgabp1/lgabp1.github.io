@@ -4,18 +4,23 @@
 
   --color-grey-deep: #2e2e2e;
   --color-grey-dark: #454545;
+  --color-grey-heavy: #5c5c5c;
   --color-grey-mild: #797979;
   --color-grey-medium: #b0b0b0;
   --color-grey-light: #d6d6d6;
   --color-grey-bright: #e0e0e0;
   --color-grey-vibrant: #f0f0f0;
-
+  --color-grey-brighter: #f9f9f9; 
+  
   --color-orange-mild: #e87d3e;
   --color-yellow-mild: #e5b567;
+  --color-green-deep: #516028;
+  --color-green-dark: #6D7C44;
+  --color-green-mild: #93AA5D;
   --color-green-light: #b4d273;
   --color-purple-mild: #9e86c8;
   --color-pink-dark: #b05279;
-  --color-blue-mild: #6c99bb;
+  --color-blue-mild: #73A4C6;
 
 }
 
@@ -24,11 +29,13 @@
 [theme="themedark"] {
   --main-bg-color: var(--color-grey-dark);
   --main-color: var(--color-grey-light);
+  --main-a-color: var(--color-green-light);
 }
 
 [theme="themelight"] {
   --main-bg-color: var(--color-grey-vibrant);
   --main-color: var(--color-grey-dark);
+  --main-a-color: var(--color-green-deep);
 }
 
 
@@ -37,14 +44,14 @@
   --nav-bg-color: var(--color-grey-deep);
   --nav-button-color: var(--color-grey-vibrant);
   --nav-button-line-active: var(--color-blue-mild);
-  --nav-button-line-hover: var(--color-grey-mild); /* Added for consistency */
+  --nav-button-line-hover: var(--color-grey-mild);
 }
 
 [theme="themelight"] {
   --nav-bg-color: var(--color-grey-light);
   --nav-button-color: var(--color-grey-dark);
   --nav-button-line-active: var(--color-blue-mild);
-  --nav-button-line-hover: var(--color-grey-mild); /* Added for consistency */
+  --nav-button-line-hover: var(--color-grey-mild);
 }
 
 /* === ToggleSlider === */
@@ -56,4 +63,26 @@
 [theme="themelight"] {
   --slider-track-bg: var(--color-grey-medium);
   --slider-thumb-bg: var(--color-grey-dark);
+}
+
+
+/* === Timeline === */
+[theme="themedark"] {
+  --timeline-date: var(--color-grey-medium);
+  --timeline-expanded-separator: var(--color-grey-light);
+  --timeline-line: var(--color-grey-medium);
+  --timeline-dot: var(--color-grey-light);
+  --timeline-entry-bg: var(--color-grey-light);
+  --timeline-entry-title: var(--color-grey-heavy);
+  --timeline-entry: var(--color-grey-dark);
+}
+
+[theme="themelight"] {
+  --timeline-date: var(--color-grey-mild);
+  --timeline-expanded-separator: var(--color-grey-light);
+  --timeline-line: var(--color-grey-mild);
+  --timeline-dot: var( --color-grey-brighter);
+  --timeline-entry-bg: var(--color-grey-brighter);
+  --timeline-entry-title: var(--color-grey-heavy);
+  --timeline-entry: var(--color-grey-dark);
 }
