@@ -2,7 +2,7 @@
 import { setPageTitle } from '@/composables/setPageTitle'; // Updated import path and function name
 setPageTitle('About'); /* Set title */
 
-import navigation from '@/components/navigation.vue'
+import navigation from '@/components/Navigation.vue'
 import { useLanguage } from '@/composables/useLanguage';
 
 // Destructure only currentLanguage and toggleLanguage

@@ -62,6 +62,16 @@ const selectLanguage = (lang: 'en' | 'fr') => {
         <span v-if="!isDark" class="icon-light">☀️</span>
         <span v-if="isDark" class="icon-dark">🌙</span>
       </ToggleSlider>
+
+      <!-- GitHub logo -->
+      <a class="github-link" href="https://github.com/lgabp1" target="_blank" rel="noopener noreferrer">
+        <span v-if="!isDark">
+          <img src="@/assets/github.svg" alt="GitHub" class="github-logo" style="height: 1.6em; filter: invert(0%);" />
+        </span>
+        <span v-if="isDark">
+          <img src="@/assets/github.svg" alt="GitHub" class="github-logo" style="height: 1.6em; filter: invert(100%);" />
+        </span>
+      </a>
     </div>
   </nav>
 </template>
@@ -117,7 +127,7 @@ nav a.router-link-active::after {
   background-color: var(--nav-button-line-active);
 }
 
-/* Styles for the icons, now defined here as they are part of navigation.vue's template */
+/* Styles for the icons, now defined here as they are part of Navigation.vue's template */
 .icon-light,
 .icon-dark {
   font-size: 0.8em; /* Adjusted size to fit better within the thumb */
@@ -176,5 +186,11 @@ nav a.router-link-active::after {
 .language-dropdown-menu button.active-lang {
   background-color: var(--nav-button-line-active); /* Highlight active language */
   color: var(--nav-bg-color); /* Text color for active language */
+}
+
+.github-link{
+  margin: 0;
+  padding: 0;
+  margin-left: 0.5em;
 }
 </style>

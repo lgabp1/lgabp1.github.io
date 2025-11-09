@@ -69,7 +69,7 @@
 /* === Timeline === */
 [theme="themedark"] {
   --timeline-date: var(--color-grey-medium);
-  --timeline-expanded-separator: var(--color-grey-light);
+  --timeline-expanded-separator: var(--color-grey-medium);
   --timeline-line: var(--color-grey-medium);
   --timeline-dot: var(--color-grey-light);
   --timeline-entry-bg: var(--color-grey-light);

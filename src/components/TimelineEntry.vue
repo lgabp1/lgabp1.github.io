@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-defineProps<{
+const props = withDefaults(defineProps<{
   title: string;
   summary: string;
   date?: string;
-}>();
+  link?: string;
+  link_is_github?: boolean;
+}>(), {
+  link_is_github: false,
+});
 
 const isExpanded = ref(false);
 
@@ -19,6 +23,10 @@ const toggleExpand = () => {
     <div v-if="date" class="timeline-date">{{ date }}</div>
     <div class="timeline-dot"></div>
     <div class="timeline-content" :class="{ 'is-expanded': isExpanded }" @click="toggleExpand">
+      <a v-if="props.link" :href="props.link" target="_blank" rel="noopener" class="logo-link">
+        <img v-if="props.link_is_github" src="@/assets/github.svg" alt="Link" />
+        <img v-else src="@/assets/link.svg" alt="Link" />
+      </a>
       <h3>{{ title }}</h3>
       <p>{{ summary }}</p>
       <transition name="expand">
@@ -50,6 +58,24 @@ const toggleExpand = () => {
 .timeline-item {
   position: relative;
   margin-bottom: 1.5rem;
+}
+
+/* New wrapper for the logo to handle positioning */
+.timeline-logo-wrapper {
+  position: absolute;
+  top: 1.25em;
+  right: 1.25em;
+  width: 1.5rem;
+  height: 1.5rem;
+  z-index: 1;
+  display: flex; /* To ensure the image fills the link area */
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline-logo-wrapper img {
+  width: 100%;
+  height: 100%;
 }
 
 .timeline-item:last-child {
@@ -86,6 +112,30 @@ const toggleExpand = () => {
 
 .timeline-content h3 {
   margin-top: 0;
+  padding-right: 2rem; /* Space for logo */
+}
+
+/* Style for the logo link */
+.logo-link {
+  position: absolute;
+  top: 1.25em;
+  right: 1.25em;
+  width: 1.5rem;
+  height: 1.5rem;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease-in-out; /* Add transition for smooth hover effect */
+}
+
+.logo-link:hover {
+  transform: scale(1.1); /* Scale up on hover */
+}
+
+.logo-link img {
+  width: 100%;
+  height: 100%;
 }
 
 .expanded-content {
