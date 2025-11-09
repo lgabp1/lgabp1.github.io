@@ -2,7 +2,7 @@
 import { setPageTitle } from '@/composables/setPageTitle'; // Updated import path and function name
 setPageTitle('Projects'); /* Set title */
 
-import navigation from '@/components/Navigation.vue'
+import Navigation from '@/components/Navigation.vue'
 import { useLanguage } from '@/composables/useLanguage';
 import TimelineEntry from '@/components/TimelineEntry.vue';
 
@@ -33,7 +33,7 @@ const cl = currentLanguage; // Alias for easier access
 </style>
 
 <template>  
-  <navigation />
+  <Navigation />
   <div class="div-content">
     <h1>
       <span v-if="cl === 'en'">Projects</span>
