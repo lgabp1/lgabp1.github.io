@@ -16,6 +16,14 @@ const isExpanded = ref(false);
 const toggleExpand = () => {
   isExpanded.value = !isExpanded.value;
 };
+
+const setExpand = (expand: boolean) => {
+  isExpanded.value = expand;
+};
+
+defineExpose({
+  setExpand
+});
 </script>
 
 <template>
