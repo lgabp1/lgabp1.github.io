@@ -136,10 +136,10 @@ h2 {
                cl === 'fr' ? 'Été 2024'
                : ''"
       >
-        <p v-if="cl === 'en'">Created </p>
-        <p v-if="cl === 'fr'">Développement</p>
+        <p v-if="cl === 'en'">Created a library to create complex Terminal User Interface (TUI) applications and a configuration software based on it.</p>
+        <p v-if="cl === 'fr'">Développement d'une bibliothèque pour créer des applications Terminal User Interface (TUI) complexes et d'un logiciel de configuration basé dessus.</p>
 
-        <img src="" alt="Preview TUI" style="max-width: 90%; margin-top: 1em; display: block; margin-left: auto; margin-right: auto;" />
+        <img src="https://raw.githubusercontent.com/lgabp1/lgabp1.github.io/refs/heads/master/public/preview_tui.png" alt="Preview TUI" style="max-width: 90%; margin-top: 1em; display: block; margin-left: auto; margin-right: auto;" />
 
       </TimelineEntry>
     </div>
