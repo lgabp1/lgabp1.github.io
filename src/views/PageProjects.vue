@@ -35,6 +35,20 @@ h2 {
   padding: 0;
   padding-left: 11.5rem;
 }
+
+.two-images {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.two-images img {
+  max-width: 45%;
+  width: 100%;
+  height: auto;
+  display: block;
+}
 </style>
 
 <template>
@@ -54,6 +68,14 @@ h2 {
       public.
     </span>
 
+<!--
+  _   _ _       _     _ _       _     _       
+ | | | (_) __ _| |__ | (_) __ _| |__ | |_ ___ 
+ | |_| | |/ _` | '_ \| | |/ _` | '_ \| __/ __|
+ |  _  | | (_| | | | | | | (_| | | | | |_\__ \
+ |_| |_|_|\__, |_| |_|_|_|\__, |_| |_|\__|___/
+          |___/           |___/               
+ -->
     <h2 v-if="cl === 'en'">Highlights</h2>
     <h2 v-if="cl === 'fr'">Projets majeurs</h2>
     <div class="timeline">
@@ -184,35 +206,7 @@ h2 {
           Your browser does not support the video tag.
         </video>
       </TimelineEntry>
-
-      <TimelineEntry
-        title="IP Paris Racing Team"
-        :summary="
-          cl === 'en'
-            ? 'Electronics team leader'
-            : cl === 'fr'
-            ? 'Chef de l\'équipe d\'électronique'
-            : ''
-        "
-        :date="
-          cl === 'en'
-            ? 'Jun 2023 — Mar 2025'
-            : cl === 'fr'
-            ? 'Jun 2023 — Mar 2025'
-            : ''
-        "
-        link="https://ipparisracingteam.binets.fr/#"
-      >
-        <p v-if="cl === 'en'">
-          Developing on-board electronics and setting up the CAN bus going on
-          the future car.
-        </p>
-        <p v-if="cl === 'fr'">
-          Développement de l'électronique embarquée sur la voiture et mise en
-          place de son bus CAN.
-        </p>
-      </TimelineEntry>
-
+      
       <TimelineEntry
         title="curses_tui_lib"
         :summary="
@@ -246,8 +240,117 @@ h2 {
           "
         />
       </TimelineEntry>
+
+      <TimelineEntry
+        title="IP Paris Racing Team"
+        :summary="
+          cl === 'en'
+            ? 'Electronics team leader'
+            : cl === 'fr'
+            ? 'Chef de l\'équipe d\'électronique'
+            : ''
+        "
+        :date="
+          cl === 'en'
+            ? 'Jun 2023 — Mar 2025'
+            : cl === 'fr'
+            ? 'Jun 2023 — Mar 2025'
+            : ''
+        "
+        link="https://ipparisracingteam.binets.fr/#"
+      >
+        <p v-if="cl === 'en'">
+          Developing on-board electronics and setting up the CAN bus going on
+          the future car.
+        </p>
+        <p v-if="cl === 'fr'">
+          Développement de l'électronique embarquée sur la voiture et mise en
+          place de son bus CAN.
+        </p>
+      </TimelineEntry>
+
+      <TimelineEntry
+        :title="
+          cl === 'en'
+            ? 'F1Tenth race car with ROS'
+            : cl === 'fr'
+            ? 'Course de voiture F1Tenth avec ROS'
+            : ''
+        "
+        :summary="
+          cl === 'en'
+            ? 'With ROS Noetic, SLAM and path planning'
+            : cl === 'fr'
+            ? 'Avec ROS Noetic, SLAM et planification de trajectoire'
+            : ''
+        "
+        date="Nov 2023 - Fev 2024"
+      >
+        <p v-if="cl === 'en'">
+          Developed algorithms for autonomous navigation of
+          <a href="https://github.com/f1tenth" target="_blank" rel="noopener"
+            >F1Tenth</a
+          >
+          miniature car using
+          <a href="https://wiki.ros.org/noetic">ROS Noetic</a>
+          .
+        </p>
+        <p v-if="cl === 'fr'">
+          Développement d'algorithmes pour la navigation autonome d'une voiture
+          miniature
+          <a href="https://github.com/f1tenth" target="_blank" rel="noopener"
+            >F1Tenth</a
+          >
+          pour
+          <a href="https://wiki.ros.org/noetic">ROS Noetic</a>
+          .
+        </p>
+
+        <p v-if="cl === 'en'">
+          Using LiDAR data and odometry, various racing algorithms were
+          developed in Gazebo simulation and later tested on the real car.
+        </p>
+        <p v-if="cl === 'fr'">
+          En utilisant un LiDAR et de l'odométrie, plusieurs algorithmes de
+          course ont été développés en simulation Gazebo puis testés sur la
+          voiture réelle.
+        </p>
+        
+        <p v-if="cl === 'en'">
+          The final implementation follows checkpoints placed on a pre-computed map with SLAM for global planning and basic model predictive control (MPC) for local planning.
+        </p>
+        <p v-if="cl === 'fr'">
+          L'implémentation finale suit des checkpoints placés une carte pré-calculée par SLAM pour sa planification globale, et un contrôle prédictif (MPC) pour la planification locale.
+        </p>
+
+        <video controls style="max-width: 60%; margin-top: 1em; display: block; margin-left: auto; margin-right: auto;">
+          <source src="https://raw.githubusercontent.com/lgabp1/lgabp1.github.io/refs/heads/master/public/preview_race_ros.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+
+        <div class="two-images" style="margin-top:1rem;">
+          <img
+            src="https://raw.githubusercontent.com/lgabp1/lgabp1.github.io/refs/heads/master/public/preview_race_ros_animated.gif"
+            alt="Animated preview"
+          />
+          <img
+            src="https://raw.githubusercontent.com/lgabp1/lgabp1.github.io/refs/heads/master/public/preview_race_ros_paths.png"
+            alt="Considered paths preview"
+          />
+        </div>
+
+      </TimelineEntry>
+
     </div>
 
+<!--
+  ___  _   _                                 _           _       
+  / _ \| |_| |__   ___ _ __   _ __  _ __ ___ (_) ___  ___| |_ ___ 
+| | | | __| '_ \ / _ \ '__| | '_ \| '__/ _ \| |/ _ \/ __| __/ __|
+| |_| | |_| | | |  __/ |    | |_) | | | (_) | |  __/ (__| |_\__ \
+  \___/ \__|_| |_|\___|_|    | .__/|_|  \___// |\___|\___|\__|___/
+                            |_|           |__/                    
+-->
     <h2 v-if="cl === 'en'">Other projects</h2>
     <h2 v-if="cl === 'fr'">Autre projets</h2>
     <div class="timeline">
@@ -680,54 +783,6 @@ h2 {
             margin-right: auto;
           "
         />
-      </TimelineEntry>
-
-      <TimelineEntry
-        :title="
-          cl === 'en'
-            ? 'F1Tenth race car with ROS'
-            : cl === 'fr'
-            ? 'Course de voiture F1Tenth avec ROS'
-            : ''
-        "
-        :summary="
-          cl === 'en'
-            ? 'With ROS Noetic, SLAM and path planning'
-            : cl === 'fr'
-            ? 'Avec ROS Noetic, SLAM et planification de trajectoire'
-            : ''
-        "
-        date="Nov 2023 - Fev 2024"
-      >
-        <p v-if="cl === 'en'">
-          Developed algorithms for autonomous navigation of
-          <a href="https://github.com/f1tenth" target="_blank" rel="noopener"
-            >F1Tenth</a
-          >
-          miniature car using
-          <a href="https://wiki.ros.org/noetic">ROS Noetic</a>
-          .
-        </p>
-        <p v-if="cl === 'fr'">
-          Développement d'algorithmes pour la navigation autonome d'une voiture
-          miniature
-          <a href="https://github.com/f1tenth" target="_blank" rel="noopener"
-            >F1Tenth</a
-          >
-          pour
-          <a href="https://wiki.ros.org/noetic">ROS Noetic</a>
-          .
-        </p>
-
-        <p v-if="cl === 'en'">
-          Using LiDAR data and odometry, various racing algorithms were
-          developed in Gazebo simulation and later tested on the real car.
-        </p>
-        <p v-if="cl === 'fr'">
-          En utilisant un LiDAR et de l'odométrie, plusieurs algorithmes de
-          course ont été développés en simulation Gazebo puis testés sur la
-          voiture réelle.
-        </p>
       </TimelineEntry>
 
       <TimelineEntry
