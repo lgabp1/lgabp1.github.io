@@ -45,8 +45,8 @@ h2 {
 }
 .two-images img {
   max-width: 45%;
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 20em;
   display: block;
 }
 </style>
@@ -323,7 +323,7 @@ h2 {
           L'implémentation finale suit des checkpoints placés une carte pré-calculée par SLAM pour sa planification globale, et un contrôle prédictif (MPC) pour la planification locale.
         </p>
 
-        <video controls style="max-width: 60%; margin-top: 1em; display: block; margin-left: auto; margin-right: auto;">
+        <video controls style="max-height: 20em; margin-top: 1em; display: block; margin-left: auto; margin-right: auto;">
           <source src="https://raw.githubusercontent.com/lgabp1/lgabp1.github.io/refs/heads/master/public/preview_race_ros.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
